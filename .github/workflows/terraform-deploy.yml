@@ -1,0 +1,63 @@
+name: terraform-plan-manual
+on:
+  workflow_dispatch:
+    branches:
+      - main
+
+env:
+  RG_BACKEND: "terraform_backend"
+  SA_BACKEND: "terraformsatbarbay"
+  CNT_BACKEND: "tfstate"
+  KEY_BACKEND: "terraform.tfstate"
+  ARM_SUBSCRIPTION_ID: "b49c0e24-8868-429d-8cf3-f7d0ee31e0f7"
+  ARM_TENANT_ID: "750b440a-bf22-45fc-b6d2-9ba065bff8bf"
+  ARM_CLIENT_ID: "${{ secrets.CLIENT_ID }}"
+  ARM_CLIENT_SECRET: "${{ secrets.CLIENT_SECRET }}"
+
+jobs:
+  terraform-plan:
+    name: "Terraform Plan"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Connect to Github
+        uses: de-vri-es/setup-git-credentials@v2
+        with:
+          credentials: https://${{secrets.TERRAFORM_TOKEN}}@github.com
+
+      - uses: azure/login@v1
+        with:
+          creds: '{"clientId":"${{ env.ARM_CLIENT_ID }}","clientSecret":"${{ env.ARM_CLIENT_SECRET }}","subscriptionId":"${{ env.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ env.ARM_TENANT_ID }}"}'
+
+      - name: Get repository
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: false
+
+      - name: Replace tokens in base branch code
+        uses: cschleiden/replace-tokens@v1.2
+        with:
+          tokenPrefix: "#{"
+          tokenSuffix: "}#"
+          files: '[ "./*.tf" ]'
+        env:
+          RG_BACKEND: ${{ env.RG_BACKEND }}
+          SA_BACKEND: ${{ env.SA_BACKEND }}
+          CNT_BACKEND: ${{ env.CNT_BACKEND }}
+          KEY_BACKEND: ${{ env.KEY_BACKEND }}
+
+      - name: Terraform init
+        id: init
+        shell: bash
+        working-directory: .
+        run: |
+          terraform init -upgrade
+
+      - name: Terraform Plan
+        id: plan
+        working-directory: .
+        run: |
+          terraform plan -input=false
