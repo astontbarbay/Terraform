@@ -4,8 +4,8 @@ variable "CIDR_BLOCK" {
 }
 
 variable "prefix_name" {
-  type    = string
-  default = "tbarbay"
+  type        = string
+  description = "Utilisé au début du nom de chaque ressource"
 }
 
 variable "env" {
@@ -14,28 +14,32 @@ variable "env" {
 }
 
 variable "location" {
-  type    = string
-  default = "West Europe"
+  type        = string
+  default     = "West Europe"
+  description = "Emplacement de créer du réseau virtuel"
 }
 
 variable "tag" {
-  type = map(string)
+  type        = map(string)
+  description = "Tag à ajouter au Réseau virtuel créé (format : {TagName = \"TagValue\"})"
 }
 
 variable "peering_vnet_id" {
-  type    = string
-  default = ""
-
+  type        = string
+  default     = ""
+  description = "ID du réseau virtuel avec lequel on veux créer un peering"
 }
 
 variable "peering_vnet_name" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
+  description = "Nom du réseau virtuel avec lequel on veux créer un peering"
 
 }
 
 variable "peering_vnet_rg" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
+  description = "Nom du groupe de ressource du réseau virtuel avec lequel on veux créer un peering"
 
 }
