@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Connect to Githib
+      - name: Connect to Github
         uses: de-vri-es/setup-git-credentials@v2
         with:
           credentials: ${{secrets.TERRAFORM_TOKEN}}
