@@ -24,6 +24,12 @@ variable "tag" {
   description = "Tag à ajouter au Réseau virtuel créé (format : {TagName = \"TagValue\"})"
 }
 
+variable "create_peering" {
+  type        = bool
+  default     = false
+  description = "Si à false (défaut) pas de peering, si à true, création de Peering"
+}
+
 variable "peering_vnet_id" {
   type        = string
   default     = ""
