@@ -38,12 +38,12 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_CIDR_BLOCK"></a> [CIDR\_BLOCK](#input\_CIDR\_BLOCK) | Doit impérativement être en /21 (ex : 10.15.0.0/21) | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | Variable ajouté entre le prefixe et le type de ressource (souvent prod ou dev) | `string` | n/a | yes |
-| <a name="input_location"></a> [location](#input\_location) | n/a | `string` | `"West Europe"` | no |
-| <a name="input_peering_vnet_id"></a> [peering\_vnet\_id](#input\_peering\_vnet\_id) | n/a | `string` | `""` | no |
-| <a name="input_peering_vnet_name"></a> [peering\_vnet\_name](#input\_peering\_vnet\_name) | n/a | `string` | `""` | no |
-| <a name="input_peering_vnet_rg"></a> [peering\_vnet\_rg](#input\_peering\_vnet\_rg) | n/a | `string` | `""` | no |
-| <a name="input_prefix_name"></a> [prefix\_name](#input\_prefix\_name) | n/a | `string` | `"tbarbay"` | no |
-| <a name="input_tag"></a> [tag](#input\_tag) | n/a | `map(string)` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | Emplacement de créer du réseau virtuel | `string` | `"West Europe"` | no |
+| <a name="input_peering_vnet_id"></a> [peering\_vnet\_id](#input\_peering\_vnet\_id) | ID du réseau virtuel avec lequel on veux créer un peering | `string` | `""` | no |
+| <a name="input_peering_vnet_name"></a> [peering\_vnet\_name](#input\_peering\_vnet\_name) | Nom du réseau virtuel avec lequel on veux créer un peering | `string` | `""` | no |
+| <a name="input_peering_vnet_rg"></a> [peering\_vnet\_rg](#input\_peering\_vnet\_rg) | Nom du groupe de ressource du réseau virtuel avec lequel on veux créer un peering | `string` | `""` | no |
+| <a name="input_prefix_name"></a> [prefix\_name](#input\_prefix\_name) | Utilisé au début du nom de chaque ressource | `string` | n/a | yes |
+| <a name="input_tag"></a> [tag](#input\_tag) | Tag à ajouter au Réseau virtuel créé (format : {TagName = "TagValue"}) | `map(string)` | n/a | yes |
 
 ## Outputs
 
