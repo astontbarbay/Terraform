@@ -9,5 +9,6 @@ output "vnet_name" {
 }
 
 output "vnet_rg" {
-  value = azurerm_resource_group.rg-01.name
+  value       = azurerm_resource_group.rg-01.name
+  description = "Nom du groupe de ressource contenant le réseau virtuel"
 }
