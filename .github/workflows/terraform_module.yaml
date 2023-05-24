@@ -12,7 +12,7 @@ jobs:
       - name: Connect to Github
         uses: de-vri-es/setup-git-credentials@v2
         with:
-          credentials: ${{secrets.TERRAFORM_TOKEN}}
+          credentials: ${{secrets.GITHUB_TOKEN}}
 
       - name: Get repository
         uses: actions/checkout@v3.5.2
