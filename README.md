@@ -37,6 +37,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_CIDR_BLOCK"></a> [CIDR\_BLOCK](#input\_CIDR\_BLOCK) | Doit impérativement être en /21 (ex : 10.15.0.0/21) | `string` | n/a | yes |
+| <a name="input_create_peering"></a> [create\_peering](#input\_create\_peering) | Si à false (défaut) pas de peering, si à true, création de Peering | `bool` | `false` | no |
 | <a name="input_env"></a> [env](#input\_env) | Variable ajouté entre le prefixe et le type de ressource (souvent prod ou dev) | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Emplacement de créer du réseau virtuel | `string` | `"West Europe"` | no |
 | <a name="input_peering_vnet_id"></a> [peering\_vnet\_id](#input\_peering\_vnet\_id) | ID du réseau virtuel avec lequel on veux créer un peering | `string` | `""` | no |
