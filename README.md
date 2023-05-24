@@ -51,7 +51,7 @@ No modules.
 |------|-------------|
 | <a name="output_vnet_id"></a> [vnet\_id](#output\_vnet\_id) | ID du Réseau Virtuel |
 | <a name="output_vnet_name"></a> [vnet\_name](#output\_vnet\_name) | Nom du Réseau Virtuel |
-| <a name="output_vnet_rg"></a> [vnet\_rg](#output\_vnet\_rg) | n/a |
+| <a name="output_vnet_rg"></a> [vnet\_rg](#output\_vnet\_rg) | Nom du groupe de ressource contenant le réseau virtuel |
 <!-- END_TF_DOCS -->
 
 # Exemple
