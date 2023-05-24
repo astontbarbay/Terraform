@@ -13,3 +13,6 @@ jobs:
         uses: de-vri-es/setup-git-credentials@v2
         with:
           credentials: ${{secrets.TERRAFORM_TOKEN}}
+
+      - name: Get repository
+        uses: actions/checkout@v3.5.2
