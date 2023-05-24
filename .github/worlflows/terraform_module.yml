@@ -1,0 +1,15 @@
+name: terraform-module-jobs
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Connect to Githib
+        uses: de-vri-es/setup-git-credentials@v2
+        with:
+          credentials: ${{secrets.TERRAFORM_TOKEN}}
